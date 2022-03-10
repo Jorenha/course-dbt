@@ -1,0 +1,39 @@
+
+version: 2
+
+models:
+
+  - name: stg_superheroes
+    description: Demographics about each superhero such as name, hair color, height and weight. 
+    columns:
+      - name: name
+        tests:
+          - not_null
+          - unique 
+
+  - name: stg_addresses
+    description: Information on addresses at address_id level
+
+  - name: stg_events
+    description: Information on events at event_id level
+
+  - name: stg_users
+    description: Information on users at user_id level 
+
+  - name: stg_order_items
+    description: Information on order_items at order_item level
+
+  - name: stg_orders
+    description: Information on orders at order_id level
+
+  - name: stg_products
+    description: Information on products at product_id level
+
+  - name: stg_promos
+    description: Information on promos at promo_id level
+  
+  
+  
+  
+
+
