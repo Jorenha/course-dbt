@@ -3,9 +3,11 @@
 
 Part 3
 Q1: 130 unique users
+
     SELECT COUNT(DISTINCT user_id) AS total_unique_users FROM dbt_joren_ha.stg_users
 
 Q2: On average 7.5 orders per hour
+
     WITH orders_per_hour AS (
         SELECT 
             COUNT(*) AS total_orders
@@ -16,6 +18,7 @@ Q2: On average 7.5 orders per hour
     SELECT AVG(total_orders) AS average_orders FROM orders_per_hour
 
 Q3: 3 days, 21 hours, 24 minutes and 11.8 seconds average delivery time
+
     SELECT 
         AVG(delivered_at - created_at) AS average_delivery_time
     FROM dbt_joren_ha.stg_orders
