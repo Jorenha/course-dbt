@@ -5,7 +5,7 @@ Part 3
 Q1: 130 unique users
     SELECT COUNT(DISTINCT user_id) AS total_unique_users FROM dbt_joren_ha.stg_users
 
-Q2: On average 15.04 orders per hour
+Q2: On average 7.5 orders per hour
     WITH orders_per_hour AS (
         SELECT 
             COUNT(*) AS total_orders
