@@ -1,0 +1,22 @@
+
+version: 2
+
+models:
+  - name: user_order_facts
+    description: "User Order fact table"
+    columns:
+      - name: user_id
+        tests:
+          - not_null
+          - unique
+      - name: average_delivery_date
+        tests:
+          - positive_amount
+      - name: total_order_cost
+        tests:
+          - positive_amount
+      - name: total_shipping_cost
+        tests:
+          - positive_amount
+      - name: total_order_total
+       

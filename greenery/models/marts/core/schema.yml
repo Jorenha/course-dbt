@@ -1,0 +1,51 @@
+
+version: 2
+
+models:
+  - name: fact_orders
+    description: "Order fact table"
+    columns:
+      - name: order_id
+        tests:
+          - not_null
+          - unique
+      - name: user_id
+        tests:
+          - not_null
+      - name: created_at
+        tests:
+          - historical_date
+      - name: order_cost
+        tests:  
+          - positive_amount
+      - name: shipping_cost
+        tests:
+          - positive_amount
+      - name: order_total
+        tests: 
+          - positive_amount
+      - name: delivered_at
+        tests: 
+          - subsequent_date
+
+  - name: dim_products
+    description: "Product dimension table"
+    columns:
+      - name: product_id
+        tests: 
+          - unique
+          - not_null
+      - name: inventory
+        tests:
+          - positive_amount
+
+  - name: dim_customers
+    description: "Customer dimension table"
+    columns:
+      - name: user_id
+        tests:
+          - unique
+          - not_null
+      - name: created_at
+        tests: 
+          - historical_date
