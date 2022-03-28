@@ -4,12 +4,9 @@ PART 1
 What is our conversion rate?
 
 I created a macro to calculate the conversion rate - this is the compiled version:
+
 SELECT 
-    
-
         (COUNT(DISTINCT CASE WHEN order_id IS NOT NULL THEN session_id END)::numeric/ COUNT(DISTINCT session_id)::numeric ) * 100 AS conversion
-
-
 FROM "dbt"."dbt_joren_ha"."stg_events" AS events
 
 Answer: 62.5%
@@ -31,13 +28,10 @@ LEFT JOIN "dbt"."dbt_joren_ha"."stg_order_items" AS o
 
 SELECT 
   product_id
-  , 
-
-        ROUND((COUNT(DISTINCT CASE WHEN order_id IS NOT NULL THEN session_id END)::numeric/ COUNT(DISTINCT session_id)::numeric ) * 100, 2) AS conversion
-
-
+  , ROUND((COUNT(DISTINCT CASE WHEN order_id IS NOT NULL THEN session_id END)::numeric/ COUNT(DISTINCT session_id)::numeric ) * 100, 2) AS conversion
 FROM event_order_info
 GROUP BY 1
+
 
 Answer:
 product_id	conversion
@@ -75,9 +69,7 @@ fb0e8be7-5ac4-4a76-a1fa-2cc4bf0b2d80	60.94
 The macro used:
 
 {% macro conversion(condition, event_column, tot_events_column) %}
-
         ROUND((COUNT(DISTINCT CASE WHEN {{ condition }} IS NOT NULL THEN {{ event_column }} END)::numeric/ COUNT(DISTINCT {{ tot_events_column }})::numeric ) * 100, 2) AS conversion
-
 {% endmacro %}
 
 
@@ -86,8 +78,7 @@ Part 2
 See Part 1 - I already used a macro here.
 
 Part 3
-
-
+Done
 
 Part 4
 I used dthe dbt_utils.current_timestmap() macro to flag any date columns in the data that are not a historical date (see historical_date.sql macro)
