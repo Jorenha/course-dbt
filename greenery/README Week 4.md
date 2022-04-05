@@ -17,14 +17,3 @@ Part 3
 3B
 Our dbt runs are scheduled on a daily basis using cloud composer. The steps involves a dbt source freshness check, dbt run and finally a dbt test over the source models. Currently, these are configured as warnings only, so that the models will still be updated even if there are some violations (ie. a source freshness test for a table failed, but other source table still contain up to date data). At the moment this serves our purpose well as it allows us to make models avialable to data consumers with as much fresh data as is available to us. 
 
-
-
-
-See Part 1 - I already used a macro here.
-
-Part 3
-
-
-
-Part 4
-I used dthe dbt_utils.current_timestmap() macro to flag any date columns in the data that are not a historical date (see historical_date.sql macro)
